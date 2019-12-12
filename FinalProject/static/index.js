@@ -11,7 +11,7 @@
 	context.color = "black";
 	context.lineWidth = 7;
     context.lineJoin = context.lineCap = 'round';
-	
+
 	debug();
 
 	canvas.addEventListener("mousemove", function(e) {
@@ -30,12 +30,12 @@
 		canvas.removeEventListener("mousemove", onPaint, false);
 	}, false);
 
-	var onPaint = function() {	
+	var onPaint = function() {
 		context.lineWidth = context.lineWidth;
 		context.lineJoin = "round";
 		context.lineCap = "round";
 		context.strokeStyle = context.color;
-	
+
 		context.beginPath();
 		context.moveTo(lastMouse.x, lastMouse.y);
 		context.lineTo(Mouse.x,Mouse.y );
@@ -51,10 +51,3 @@
 		});
 	}
 }());
-
-// this prevents the site from idling
-// since it takes the flask app about 20 seconds to start up again
-var http = require("http");
-setInterval(function() {
-    http.get("http://mnist-flask-app.herokuapp.com");
-}, 300000); // every 5 minutes (300000)

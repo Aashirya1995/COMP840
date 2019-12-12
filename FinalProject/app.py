@@ -24,7 +24,7 @@ def predict():
     # getting the data from the drawing canvas and being saved as image
     parseImage(request.get_data())
 
-    # reading parsed image back in 8-bit.
+    # reading parsed image.
     x = imread('output.png', mode='L')
     x = np.invert(x)
     x = imresize(x,(28,28))
